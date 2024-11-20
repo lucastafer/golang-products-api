@@ -1,7 +1,7 @@
 services:
   go-app:
-    container_name: go-app
-    image: golang-api
+    container_name: golang-products-app
+    image: golang-products-api
     build: .
     ports:
       - "8000:8000"

@@ -1,16 +1,21 @@
-FROM golang:1.18
+## Image optimized with multi-stage build
 
-# Set working directory
-WORKDIR /go/src/app
+# Stage 1: golang alpine
+FROM golang:1.23-alpine AS builder
 
-# Copy source code
+WORKDIR /app
+
+# Copy go.mod and go.sum to install dependencies and run
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
+# Optimization and pointing to ./cmd where main.go is
+RUN CGO_ENABLED=0 GOOS=linux go build -o golang-products-api ./cmd
 
-# Expose port
-EXPOSE 8000
+# Stage 2: using scratch to final image, compiling binary
+FROM scratch
 
-# Build
-RUN go build -o main cmd/main.go
+COPY --from=builder /app/golang-products-api /
 
-# Run executable
-CMD ["./main"]
+ENTRYPOINT [ "/golang-products-api" ]
