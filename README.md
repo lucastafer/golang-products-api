@@ -1,8 +1,8 @@
 # Go Products API Project
 
-This was my first simple project using Golang, developed with the goal of getting to know the language better. I built a CRUD API from scratch, based on the tutorial by [GoLabTutorials](https://www.youtube.com/@GoLabTutoriais) on YouTube. At the end of the video, I was challenged to implement two additional routes, which I successfully completed.
+This was my first simple project developed with Golang, following clean architecture principles and aimed at getting familiar with the language. I built a CRUD API from scratch, based on the tutorial by [GoLabTutorials](https://www.youtube.com/@GoLabTutoriais) on YouTube. At the end of the video, I was challenged to implement two additional routes, which I successfully completed.
 
-The project serves as a foundation for creating a RESTful API using the Gin framework, connecting to a PostgreSQL database for CRUD (Create, Read, Update, Delete) operations on products. The application runs in a Docker container, with Docker Compose.
+The project serves as a foundation for creating a RESTful API using the Gin framework, connecting to a PostgreSQL database for CRUD operations on products. The application runs in a Docker container, with Docker Compose.
 
 ## Technologies
 
